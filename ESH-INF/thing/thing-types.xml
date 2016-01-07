@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<thing:thing-descriptions bindingId="customcube"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:thing="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0"
+        xsi:schemaLocation="http://eclipse.org/smarthome/schemas/thing-description/v1.0.0 http://eclipse.org/smarthome/schemas/thing-description-1.0.0.xsd">
+
+    <thing-type id="customcube">
+        <label>CustomCube</label>
+        <description>CustomCube Binding</description>
+
+        <channels>
+            <channel id="rotation" typeId="rotation"/>
+            <channel id="flip" typeId="flip"/>
+        </channels>
+        <config-description>
+            <parameter name="internal_server_port" type="integer" required="true">
+                <label>Internal server port</label>
+                <description>The port of the internal UDP server.</description>
+                <default>8225</default>
+            </parameter>            
+        </config-description>
+    </thing-type>
+
+    <!-- Channel Type -->
+    <channel-type id="rotation">
+        <item-type>Number</item-type>
+        <label>Rotation</label>
+        <description>Eine Rotation (links oder rechts herum) des Cube.</description>
+        <state readOnly="true"></state>
+    </channel-type>
+    <channel-type id="flip">
+        <item-type>Number</item-type>
+        <label>Seitenänderung</label>
+        <description>Eine Seitenänderung des Cube.</description>
+        <state readOnly="true"></state>
+    </channel-type>
+
+</thing:thing-descriptions>
